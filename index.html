@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xavier's School for Gifted Youngsters</title>
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Urbanist:wght@600&display=swap" rel="stylesheet">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+  <style>
+
+    body {
+      font-family: 'Urbanist', sans-serif;
+      background-color: #ffeecb;
+    }
+    h1 {
+      font-family: 'Momo Trust Display', cursive;
+      color: #800000;
+    }
+    nav.navbar {
+      background: linear-gradient(to left, #a92121, #700101);
+    }
+    nav .navbar-brand {
+      color: #fff;
+    }
+    nav .nav-link {
+      color: #f2dcdc;
+    }
+    nav .nav-link.active {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    form {
+      background-color: #800000;
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 900px;
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    label {
+      background-color: #f5b7b1;
+      border-radius: 10px 0 0 10px;
+      padding: 10px;
+      width: 140px;
+      font-weight: 600;
+      color: #800000;
+    }
+
+    input.form-control {
+      border-radius: 0 10px 10px 0;
+      border: 2px solid #f5b7b1;
+    }
+
+  .small-btn{
+    width: 200px;
+    background-color: #b12d2d; 
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .small-btn:hover {
+    transform: scale(1.08); 
+    background-color: #d42c2c; 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+
+  .small-btn:active {
+    transform: scale(0.98); 
+  }
+
+    .grade-ticket {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      margin-top: 30px;
+      max-width: 900px;
+      width: 100%;
+    }
+    .grade-ticket h3 {
+      color: #800000;
+      font-weight: 700;
+    }
+    .grade-ticket .row {
+      padding: 5px 0;
+    }
+    .grade-ticket .fw-bold {
+      color: #6c757d;
+    }
+    .text-maroon {
+      color: #800000;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-graduation-cap me-2"></i>Xavier's School for Gifted Youngsters
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ordering_form.html">Grade Calculator</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact_us.html">Clubs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Centered Form -->
+  <div class="form-wrapper container">
+    <h1 class="text-center mb-4">Student Grades Input</h1>
+
+    <form id="gradesForm" onsubmit="return false;">
+      <div class="row g-3">
+        <div class="col-md-6 d-flex">
+          <label>First Name</label>
+          <input type="text" id="first" class="form-control" placeholder="Charles Perceval" required>
+        </div>
+        <div class="col-md-6 d-flex">
+          <label>Last Name</label>
+          <input type="text" id="last" class="form-control" placeholder="LecLerc" required>
+        </div>
+      </div>
+
+      <h2 class="mt-4 text-white">Enter your grades</h2>
+      <div class="row g-3 mt-1">
+        <div class="col-md-6 d-flex">
+          <label>Math</label>
+          <input type="number" id="math" class="form-control" min="0" max="100" required>
+        </div>
+        <div class="col-md-6 d-flex">
+          <label>Science</label>
+          <input type="number" id="science" class="form-control" min="0" max="100" required>
+        </div>
+        <div class="col-md-6 d-flex">
+          <label>English</label>
+          <input type="number" id="english" class="form-control" min="0" max="100" required>
+        </div>
+        <div class="col-md-6 d-flex">
+          <label>Filipino</label>
+          <input type="number" id="filipino" class="form-control" min="0" max="100" required>
+        </div>
+        <div class="col-md-6 d-flex">
+          <label>ICT</label>
+          <input type="number" id="ict" class="form-control" min="0" max="100" required>
+        </div>
+        <div class="col-md-6 d-flex">
+          <label>PE</label>
+          <input type="number" id="pe" class="form-control" min="0" max="100" required>
+        </div>
+      </div>
+
+      <div class="mt-4">
+     <button py-click="compute_grade" class="small-btn d-block mx-auto">Calculate Average</button>
+      </div>
+    </form>
+
+    <!-- Output Display -->
+    <div class="grade-ticket text-center">
+      <h3>Result</h3>
+
+      <div class="row mt-3">
+        <div class="col-6 fw-bold">Student Name:</div>
+        <div class="col-6 text-maroon" id="show1">—</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 fw-bold">Average Grade:</div>
+        <div class="col-6 text-maroon" id="show2">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PyScript -->
+  <script type="py" src="main2.py"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
